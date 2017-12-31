@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   handleRemoveAll() {
-    if (window.confirm('Are you sure you want to delete all todos?')) {
+    if (window.confirm('Are you sure you want to clear all todos?')) {
       this.setState({ todos: [], allSelected: false });
     }
   }
@@ -122,17 +122,9 @@ class App extends Component {
         <div>
           <h3 style={{ marginBottom: 5 }}>Add a new todo:</h3>
           <form onSubmit={this.handleAdd} style={{ display: 'inline-block' }}>
-            <input
-              type="text"
-              style={{ padding: 5 }}
-              onChange={this.handleInputChange}
-              value={this.state.todoTitle}
-            />
+            <input type="text" style={{ padding: 5 }} onChange={this.handleInputChange} value={this.state.todoTitle} />
           </form>
-          <button
-            onClick={this.handleAdd}
-            style={{ marginLeft: 5, display: 'inline-block' }}
-          >
+          <button onClick={this.handleAdd} style={{ marginLeft: 5, display: 'inline-block' }}>
             Add
           </button>
           {this.state.todos.length > 0 && (
@@ -155,12 +147,8 @@ class App extends Component {
                 checked={this.state.allSelected}
               />
               {this.state.allSelected && (
-                <button
-                  onClick={this.handleRemoveAll}
-                  className="complete-all-checkbox"
-                  style={{ right: '10%' }}
-                >
-                  Delete All
+                <button onClick={this.handleRemoveAll} className="complete-all-checkbox" style={{ right: '10%' }}>
+                  Clear Todos
                 </button>
               )}
             </div>
@@ -168,10 +156,7 @@ class App extends Component {
 
           {this.state.todos.map((todo, idx) => (
             <div key={todo.id} style={todoStyle}>
-              <button
-                onClick={e => this.handleRemove(e, idx)}
-                style={{ float: 'right', cursor: 'pointer' }}
-              >
+              <button onClick={e => this.handleRemove(e, idx)} style={{ float: 'right', cursor: 'pointer' }}>
                 X
               </button>
               <p>
