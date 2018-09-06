@@ -7,11 +7,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      posts: [],
-      photos: [],
       todos: [],
       todoTitle: '',
-      allSelected: false,
+      allSelected: false
     };
 
     this.handleSelectAll = this.handleSelectAll.bind(this);
@@ -22,17 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     const baseUrl = 'https://jsonplaceholder.typicode.com';
-    // const posts = '/posts';
-    // const photos = '/photos';
     const todos = '/todos';
-
-    // return fetch(baseUrl + posts)
-    //   .then(data => data.json())
-    //   .then(posts => this.setState({ posts: posts.slice(0, 25) }));
-
-    // return fetch(baseUrl + photos)
-    //   .then(data => data.json())
-    //   .then(photos => this.setState({ photos: photos.slice(0, 25) }));
 
     return fetch(baseUrl + todos)
       .then(data => data.json())
@@ -70,7 +58,7 @@ class App extends Component {
       userId: 'browser_user',
       id: this.state.todos.length + 1,
       title: this.state.todoTitle,
-      completed: false,
+      completed: false
     };
     const todos = this.state.todos;
     if (this.state.todoTitle.length !== 0) {
@@ -95,7 +83,7 @@ class App extends Component {
       borderStyle: 'dotted',
       width: '30%',
       margin: '10px auto',
-      padding: 3,
+      padding: 3
     };
 
     return (
@@ -104,21 +92,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Todo.js</h1>
         </header>
-        {/* {this.state.posts.map(post => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-          </div>
-        ))} */}
-        {/* {this.state.photos.map(photo => (
-          <a key={photo.id}>
-            <img
-              src={photo.thumbnailUrl}
-              alt={photo.title}
-              style={{ margin: 5 }}
-            />
-          </a>
-        ))} */}
         <div>
           <h3 style={{ marginBottom: 5 }}>Add a new todo:</h3>
           <form onSubmit={this.handleAdd} style={{ display: 'inline-block' }}>
@@ -132,7 +105,7 @@ class App extends Component {
               style={{
                 width: '50%',
                 margin: '35px auto',
-                borderStyle: 'dashed',
+                borderStyle: 'dashed'
               }}
             />
           )}
